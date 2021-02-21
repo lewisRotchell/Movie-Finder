@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import { getMovies } from "../../actions/movieActions";
+import PropTypes from "prop-types";
 
-const SearchBar = () => {
+const SearchBar = ({ getMovies }) => {
+  const [text, setText] = useState("");
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (!text) {
+      alert("please enter a movie");
+    } else {
+      setText("");
+    }
+  };
   return (
-    <nav>
+    <nav className="deep-purple accent-4">
       <div className="nav-wrapper">
-        <form>
+        <form onSubmit={onSubmit}>
           <div className="input-field">
-            <input id="search" type="search" required />
+            <input
+              id="search"
+              type="search"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            />
             <label className="label-icon" htmlFor="search">
               <i className="material-icons">search</i>
             </label>
@@ -18,4 +35,12 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+SearchBar.propTypes = {
+  getMovies: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  movies: state.movies,
+});
+
+export default connect(mapStateToProps, { getMovies })(SearchBar);
