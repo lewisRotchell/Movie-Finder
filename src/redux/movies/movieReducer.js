@@ -1,7 +1,7 @@
 import { GET_MOVIES } from "./movieTypes";
 const initialState = {
-  movies: [],
-  movie: {},
+  movies: null,
+  movie: null,
   loading: false,
   error: null,
 };

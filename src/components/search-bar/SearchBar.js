@@ -1,16 +1,21 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import "./SearchBar.scss";
 import { getMovies } from "../../redux/movies/movieActions";
 import PropTypes from "prop-types";
 
-const SearchBar = ({ getMovies }) => {
+const SearchBar = () => {
   const [text, setText] = useState("");
+  const dispatch = useDispatch();
+
   const onSubmit = (e) => {
     e.preventDefault();
     if (!text) {
       alert("please enter a movie");
     } else {
+      dispatch(getMovies(text));
       setText("");
+      console.log(text);
     }
   };
   return (

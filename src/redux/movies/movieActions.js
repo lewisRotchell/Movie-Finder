@@ -1,21 +1,22 @@
 import axios from "axios";
 import { GET_MOVIES } from "./movieTypes";
 
-let movieApiKey = process.env.MOVIE_API_KEY;
+const movieApiKey = process.env.REACT_APP_MOVIE_API_KEY;
 
 export const getMovies = (title) => async (dispatch) => {
   try {
-    const response = await axios.get("http://img.omdbapi.com", {
+    const response = await axios.get("http://www.omdbapi.com", {
       params: {
         apiKey: movieApiKey,
-        t: title,
+        s: title,
       },
     });
     dispatch({
       type: GET_MOVIES,
-      payload: response,
+      payload: response.data,
     });
   } catch (err) {
     console.error(err);
   }
 };
+console.log(movieApiKey);
