@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_MOVIES } from "./types";
+import { GET_MOVIES } from "./movieTypes";
 
 let movieApiKey = process.env.MOVIE_API_KEY;
 
