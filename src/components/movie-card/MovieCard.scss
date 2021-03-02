@@ -6,7 +6,7 @@
     .card__image {
       opacity: 0.3;
     }
-    .card__heading {
+    .card__details {
       display: flex;
       flex-direction: column;
       z-index: 100;
@@ -19,7 +19,7 @@
     background-position: center;
   }
 
-  &__heading {
+  &__details {
     position: absolute;
     display: none;
     color: #000;
