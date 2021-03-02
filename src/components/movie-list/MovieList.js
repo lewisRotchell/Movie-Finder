@@ -22,6 +22,9 @@ const listStyle = {
   display: "grid",
   gridTemplateColumns: "repeat(4, 1fr)",
   gap: "1rem",
+  maxWidth: "1200px",
+  textAlign: "center",
+  margin: "0 auto",
 };
 
 export default MovieList;
