@@ -13,10 +13,9 @@ export const getMovies = (title) => async (dispatch) => {
     });
     dispatch({
       type: GET_MOVIES,
-      payload: response.data,
+      payload: response.data.Search,
     });
   } catch (err) {
     console.error(err);
   }
 };
-console.log(movieApiKey);

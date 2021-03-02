@@ -1,6 +1,6 @@
 import { GET_MOVIES } from "./movieTypes";
 const initialState = {
-  movies: null,
+  movieList: null,
   movie: null,
   loading: false,
   error: null,
@@ -11,7 +11,7 @@ export default (state = initialState, action) => {
     case GET_MOVIES:
       return {
         ...state,
-        movies: action.payload,
+        movieList: action.payload,
         loading: false,
       };
     default:

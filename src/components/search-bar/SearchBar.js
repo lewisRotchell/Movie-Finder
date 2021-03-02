@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import "./SearchBar.scss";
 import { getMovies } from "../../redux/movies/movieActions";
-import PropTypes from "prop-types";
 
 const SearchBar = () => {
   const [text, setText] = useState("");
@@ -27,13 +26,11 @@ const SearchBar = () => {
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
-      <span className="search-bar__delete">&#10006;</span>
+      <span onClick={() => setText("")} className="search-bar__delete">
+        &#10006;
+      </span>
     </form>
   );
-};
-
-SearchBar.propTypes = {
-  getMovies: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
