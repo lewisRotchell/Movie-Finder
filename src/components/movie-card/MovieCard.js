@@ -1,7 +1,7 @@
 import React from "react";
 import "./MovieCard.scss";
 import CustomButton from "../custom-button/CustomButton";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getMovie } from "../../redux/movies/movieActions";
 import { withRouter } from "react-router-dom";
 
@@ -10,9 +10,9 @@ const MovieCard = ({ Title, Year, imdbID, Poster, history, match }) => {
 
   const handleSubmit = () => {
     dispatch(getMovie(imdbID));
+
     history.push({
       pathname: "/movie",
-      state: { imdbID },
     });
   };
 
