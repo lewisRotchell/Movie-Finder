@@ -10,10 +10,12 @@ const MovieCard = ({ Title, Year, imdbID, Poster, history, match }) => {
 
   const handleSubmit = () => {
     dispatch(getMovie(imdbID));
-    history.push(`${match.url}movie`);
+    history.push({
+      pathname: "/movie",
+      state: { imdbID },
+    });
   };
-  console.log(match);
-  console.log(Title, Year, imdbID, Poster);
+
   if (Poster !== "N/A") {
     return (
       <div className="card">
