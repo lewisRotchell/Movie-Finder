@@ -3,7 +3,10 @@ import "./MovieInfo.scss";
 import { useSelector } from "react-redux";
 
 const MovieInfo = () => {
-  const movie = useSelector((state) => state.movies.movie || {});
+  const movie = useSelector((state) => state.movies.movie);
+
+  if (!movie) return <p>Loading</p>;
+
   console.log(movie);
 
   const {
